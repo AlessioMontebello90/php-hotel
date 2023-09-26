@@ -1,7 +1,5 @@
 <?php
-
     $hotels = [
-
         [
             'name' => 'Hotel Belvedere',
             'description' => 'Hotel Belvedere Descrizione',
@@ -39,6 +37,20 @@
         ],
 
     ];
+
+    $checked = false;
+
+    if(isset($_GET['parking'])) {
+        $checked = 'checked';
+
+        $filtered_hotels = [];
+
+        foreach($hotels as $hotel) {
+            if($hotel['parking']) $filtered_hotels[] = $hotel;
+        }
+
+        $hotels = $filtered_hotels;
+    }
 
 ?>
 
